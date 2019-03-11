@@ -7,7 +7,7 @@ class DifCalcStrategy:
         return
 
 
-class IncorrectElementPosition(DifCalcStrategy):
+class DifCalcIncorrectEP(DifCalcStrategy):
     def apply(self, s1, s2):
         out = 0
         for x in range(s1.maxx()):
@@ -17,15 +17,15 @@ class IncorrectElementPosition(DifCalcStrategy):
         return out
 
 
-class DistanceFromCorrectElementPosition(DifCalcStrategy):
+class DifCalcDistanceFromCorrectEP(DifCalcStrategy):
     @staticmethod
     def calc_dif(s1x, s1y, s1, s2, maxx, maxy):
-        d = s1[s1y][s1x]
-        if d == 'm' or d == s2[s1y][s1x]:
+        d = s1.data[s1y][s1x]
+        if d == 'm' or d == s2.data[s1y][s1x]:
             return 0
         for x in range(maxx):
             for y in range(maxy):
-                if s2[s1y][s1x] == d:
+                if s2.data[y][x] == d:
                     return abs(x - s1x) + abs(y - s1y)
 
     def apply(self, s1, s2):
@@ -38,4 +38,4 @@ class DistanceFromCorrectElementPosition(DifCalcStrategy):
         return out
 
 
-dif_calculators = (IncorrectElementPosition(), DistanceFromCorrectElementPosition())
+dif_calculators = (DifCalcIncorrectEP(), DifCalcDistanceFromCorrectEP())

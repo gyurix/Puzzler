@@ -1,3 +1,4 @@
+from difcalc import *
 from operations import *
 
 
@@ -53,3 +54,17 @@ def test_equals():
     s.x = 0
     s.y = 0
     assert prepare_state() == s
+
+
+def test_dif_calc_incorrect_ep():
+    s = prepare_state()
+    s2 = prepare_state()
+    s2.data = [[3, 2, 1], ['m', 4, 5], [6, 7, 8]]
+    assert DifCalcIncorrectEP().apply(s, s2) == 3
+
+
+def test_dif_calc_dist_from_correct_ep():
+    s = prepare_state()
+    s2 = prepare_state()
+    s2.data = [[3, 2, 1], ['m', 4, 5], [6, 7, 8]]
+    assert DifCalcDistanceFromCorrectEP().apply(s, s2) == 5
