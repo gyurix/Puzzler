@@ -4,7 +4,9 @@ class State:
             self.data = None
             self.prev = None
             self.x = self.y = 0
+            self.dist = 0
             return
+        self.dist = prev.dist + 1
         self.data = prev.data
         self.x = prev.x
         self.y = prev.y
