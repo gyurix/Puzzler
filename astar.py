@@ -28,16 +28,40 @@ from operations import operations
 #               else if this neighbor is not in both lists:
 #                   add it to the open list and set its g
 
-def astar_solve(s1, s2, strategy):
-    open_list = SortedSet([s1], strategy(s2).apply)
-    closed_list = SortedSet(key=strategy(s2).apply)
+def a_star_solve(s1, strategy):
+    s2 = strategy.s2
+    open_list = SortedSet([s1], strategy.apply)
+    closed_list = SortedSet(key=strategy.apply)
     while True:
-        closest = open_list.pop()
-        if closest == s2:
-            return closest
+        cur = open_list.pop()
+        if cur == s2:
+            out = [cur]
+            while cur.parent is not None:
+                out.append(cur.parent)
+                cur = cur.parent
+            out.reverse()
+            return out
         else:
-            closed_list.add(closest)
+            closed_list.add(cur)
             for op in operations:
-                s = op.apply(closest)
-
-                # TODO: Finish the A* algorithm
+                nbor = op.apply(cur)
+                try:
+                    idx = closed_list.index(nbor)
+                    if nbor.dist < closed_list[idx].dist:
+                        del closed_list[idx]
+                        print('Closed List:', closed_list)
+                        closed_list.add(nbor)
+                        print('Closed List:', closed_list)
+                    continue
+                except ValueError:
+                    pass
+                try:
+                    idx = open_list.index(nbor)
+                    if cur.dist < nbor.dist:
+                        print('Open List:', open_list)
+                        nbor.parent = cur
+                    continue
+                except ValueError:
+                    pass
+                open_list.add(nbor)
+                print('Open List:', open_list)

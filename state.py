@@ -1,15 +1,16 @@
 class State:
-    def __init__(self, prev=None):
-        if prev is None:
+    def __init__(self, parent=None):
+        self.parent = parent
+        if parent is None:
             self.data = None
             self.prev = None
             self.x = self.y = 0
             self.dist = 0
             return
-        self.dist = prev.dist + 1
-        self.data = prev.data
-        self.x = prev.x
-        self.y = prev.y
+        self.dist = parent.dist + 1
+        self.data = parent.data
+        self.x = parent.x
+        self.y = parent.y
 
     def move(self, x, y):
         self.data[self.y][self.x] = self.data[y][x]
@@ -46,4 +47,14 @@ class State:
         out = '('
         for row in self.data:
             out += str(row).replace(', ', ' ').replace("'", '').replace('[', '(').replace(']', ')')
-        return out + ')'
+        return out + ')' + ' DIST = ' + str(self.dist)
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __hash__(self):
+        out = 0
+        for row in self.data:
+            for col in row:
+                out = out * 469 + (47 if col == 'm' else col)
+        return out
