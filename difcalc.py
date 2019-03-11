@@ -2,19 +2,22 @@ import abc
 
 
 class DifCalcStrategy:
+    def __init__(self, s2):
+        self.s2 = s2
+
     @abc.abstractmethod
-    def apply(self, s1, s2):
-        return
+    def apply(self, s1):
+        return 0
 
 
 class DifCalcIncorrectEP(DifCalcStrategy):
-    def apply(self, s1, s2):
+    def apply(self, s1):
         out = 0
         for x in range(s1.maxx()):
             for y in range(s1.maxy()):
                 if s1.data[y][x] != 'm':
-                    out += s1.data[y][x] != s2.data[y][x]
-        return out
+                    out += s1.data[y][x] != self.s2.data[y][x]
+        return s1.dist + out
 
 
 class DifCalcDistanceFromCorrectEP(DifCalcStrategy):
@@ -28,14 +31,11 @@ class DifCalcDistanceFromCorrectEP(DifCalcStrategy):
                 if s2.data[y][x] == d:
                     return abs(x - s1x) + abs(y - s1y)
 
-    def apply(self, s1, s2):
+    def apply(self, s1):
         out = 0
         maxx = s1.maxx()
         maxy = s1.maxy()
         for x in range(maxx):
             for y in range(maxy):
-                out += self.calc_dif(x, y, s1, s2, maxx, maxy)
-        return out
-
-
-dif_calculators = (DifCalcIncorrectEP(), DifCalcDistanceFromCorrectEP())
+                out += self.calc_dif(x, y, s1, self.s2, maxx, maxy)
+        return s1.dist + out
