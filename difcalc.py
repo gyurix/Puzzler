@@ -19,6 +19,9 @@ class DifCalcIncorrectEP(DifCalcStrategy):
                     out += s1.data[y][x] != self.s2.data[y][x]
         return s1.dist + out
 
+    def __repr__(self):
+        return 'IncorrectEP'
+
 
 class DifCalcDistanceFromCorrectEP(DifCalcStrategy):
     @staticmethod
@@ -39,3 +42,6 @@ class DifCalcDistanceFromCorrectEP(DifCalcStrategy):
             for y in range(maxy):
                 out += self.calc_dif(x, y, s1, self.s2, maxx, maxy)
         return s1.dist + out
+
+    def __repr__(self):
+        return 'DistanceFromCorrectEP'

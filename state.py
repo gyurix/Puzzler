@@ -8,7 +8,7 @@ class State:
             self.dist = 0
             return
         self.dist = parent.dist + 1
-        self.data = parent.data
+        self.data = [x[:] for x in parent.data]
         self.x = parent.x
         self.y = parent.y
 
@@ -47,14 +47,14 @@ class State:
         out = '('
         for row in self.data:
             out += str(row).replace(', ', ' ').replace("'", '').replace('[', '(').replace(']', ')')
-        return out + ')' + ' DIST = ' + str(self.dist)
+        return out + ')'
 
     def __repr__(self):
-        return self.__str__()
+        return self.__str__() + ' DIST = ' + str(self.dist)
 
     def __hash__(self):
         out = 0
         for row in self.data:
             for col in row:
-                out = out * 469 + (47 if col == 'm' else col)
+                out = out * 17 + (11 if col == 'm' else col)
         return out

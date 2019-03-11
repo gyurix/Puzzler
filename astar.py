@@ -33,7 +33,7 @@ def a_star_solve(s1, strategy):
     open_list = SortedSet([s1], strategy.apply)
     closed_list = SortedSet(key=strategy.apply)
     while True:
-        cur = open_list.pop()
+        cur = open_list.pop(0)
         if cur == s2:
             out = [cur]
             while cur.parent is not None:
@@ -45,23 +45,22 @@ def a_star_solve(s1, strategy):
             closed_list.add(cur)
             for op in operations:
                 nbor = op.apply(cur)
+                if nbor is None:
+                    continue
                 try:
                     idx = closed_list.index(nbor)
                     if nbor.dist < closed_list[idx].dist:
                         del closed_list[idx]
-                        print('Closed List:', closed_list)
                         closed_list.add(nbor)
-                        print('Closed List:', closed_list)
                     continue
                 except ValueError:
                     pass
                 try:
                     idx = open_list.index(nbor)
                     if cur.dist < nbor.dist:
-                        print('Open List:', open_list)
-                        nbor.parent = cur
+                        del open_list[idx]
+                        open_list.add(nbor)
                     continue
                 except ValueError:
                     pass
                 open_list.add(nbor)
-                print('Open List:', open_list)
