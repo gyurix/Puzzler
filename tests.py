@@ -60,11 +60,11 @@ def test_dif_calc_incorrect_ep():
     s = prepare_state()
     s2 = prepare_state()
     s2.data = [[3, 2, 1], ['m', 4, 5], [6, 7, 8]]
-    assert DifCalcIncorrectEP().apply(s, s2) == 3
+    assert DifCalcIncorrectEP(s2).apply(s) == 3
 
 
 def test_dif_calc_dist_from_correct_ep():
     s = prepare_state()
     s2 = prepare_state()
     s2.data = [[3, 2, 1], ['m', 4, 5], [6, 7, 8]]
-    assert DifCalcDistanceFromCorrectEP().apply(s, s2) == 5
+    assert DifCalcDistanceFromCorrectEP(s2).apply(s) == 5
