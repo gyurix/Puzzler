@@ -99,7 +99,16 @@ def test_a_star_two_step():
     assert out[2] == s2
 
 
-def test_a_star_3x2():
+def test_a_star_3x2_dc1():
+    s1 = prepare_state('((m 1 2)(3 4 5))')
+    s2 = prepare_state('((3 4 5)(m 1 2))')
+    out = a_star_solve(s1, DifCalcIncorrectEP(s2))
+    print_path(out)
+    assert len(out) == 22
+    assert out[len(out) - 1] == s2
+
+
+def test_a_star_3x2_dc2():
     s1 = prepare_state('((m 1 2)(3 4 5))')
     s2 = prepare_state('((3 4 5)(m 1 2))')
     out = a_star_solve(s1, DifCalcDistanceFromCorrectEP(s2))
@@ -108,10 +117,55 @@ def test_a_star_3x2():
     assert out[len(out) - 1] == s2
 
 
-def test_a_star_4x2():
+def test_a_star_4x2_dc1():
+    s1 = prepare_state('((m 1 2 3)(4 5 6 7))')
+    s2 = prepare_state('((3 2 5 4)(7 6 1 m))')
+    out = a_star_solve(s1, DifCalcIncorrectEP(s2))
+    print_path(out)
+    assert len(out) == 37
+    assert out[len(out) - 1] == s2
+
+
+def test_a_star_4x2_dc2():
     s1 = prepare_state('((m 1 2 3)(4 5 6 7))')
     s2 = prepare_state('((3 2 5 4)(7 6 1 m))')
     out = a_star_solve(s1, DifCalcDistanceFromCorrectEP(s2))
     print_path(out)
     assert len(out) == 37
+    assert out[len(out) - 1] == s2
+
+
+def test_a_star_3x3_dc1():
+    s1 = prepare_state('((m 1 2)(3 4 5)(6 7 8))')
+    s2 = prepare_state('((8 m 6)(5 4 7)(2 3 1))')
+    out = a_star_solve(s1, DifCalcIncorrectEP(s2))
+    print_path(out)
+    assert len(out) == 32
+    assert out[len(out) - 1] == s2
+
+
+def test_a_star_3x3_dc2():
+    s1 = prepare_state('((m 1 2)(3 4 5)(6 7 8))')
+    s2 = prepare_state('((8 m 6)(5 4 7)(2 3 1))')
+    out = a_star_solve(s1, DifCalcDistanceFromCorrectEP(s2))
+    print_path(out)
+    assert len(out) == 32
+    assert out[len(out) - 1] == s2
+
+
+def test_a_star_5x2_dc1():
+    s1 = prepare_state('((m 1 2 3 4)(5 6 7 8 9))')
+    s2 = prepare_state('((4 3 2 6 1)(9 8 7 5 m))')
+    out = a_star_solve(s1, DifCalcIncorrectEP(s2))
+    print_path(out)
+    assert len(out) == 56
+    assert out[len(out) - 1] == s2
+
+
+def test_a_star_5x2_dc2():
+    s1 = prepare_state('((m 1 2 3 4)(5 6 7 8 9))')
+    s2 = prepare_state('((4 3 2 6 1)(9 8 7 5 m))')
+    out = a_star_solve(s1, DifCalcDistanceFromCorrectEP(s2))
+    print_path(out)
+    assert len(out) == 56
     assert out[len(out) - 1] == s2
