@@ -45,22 +45,14 @@ def a_star_solve(s1, strategy):
             closed_list.add(cur)
             for op in operations:
                 nbor = op.apply(cur)
-                if nbor is None:
+                if nbor is None or nbor in closed_list:
                     continue
-                try:
-                    idx = closed_list.index(nbor)
-                    if nbor.dist < closed_list[idx].dist:
-                        del closed_list[idx]
-                        closed_list.add(nbor)
-                    continue
-                except ValueError:
-                    pass
-                try:
-                    idx = open_list.index(nbor)
-                    if cur.dist < nbor.dist:
-                        del open_list[idx]
-                        open_list.add(nbor)
-                    continue
-                except ValueError:
-                    pass
-                open_list.add(nbor)
+                if nbor in open_list:
+                    try:
+                        if cur.dist < nbor.dist:
+                            del open_list[open_list.index(nbor)]
+                            open_list.add(nbor)
+                    except ValueError:
+                        pass
+                else:
+                    open_list.add(nbor)

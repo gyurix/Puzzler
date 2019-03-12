@@ -102,7 +102,7 @@ def test_a_star_two_step():
 def test_a_star_3x2():
     s1 = prepare_state('((m 1 2)(3 4 5))')
     s2 = prepare_state('((3 4 5)(m 1 2))')
-    out = a_star_solve(s1, DifCalcIncorrectEP(s2))
+    out = a_star_solve(s1, DifCalcDistanceFromCorrectEP(s2))
     print_path(out)
     assert len(out) == 22
     assert out[len(out) - 1] == s2
