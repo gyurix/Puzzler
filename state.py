@@ -34,9 +34,9 @@ class State:
             except ValueError:
                 self.y += 1
 
-    def read_data(self):
+    def load_data(self, data):
         self.data = eval(
-            input().replace(' ', ',').replace(')(', '],[').replace('m', "'m'").replace('(', '[').replace(')', ']'))
+            data.replace(' ', ',').replace(')(', '],[').replace('m', "'m'").replace('(', '[').replace(')', ']'))
         self.find_pos()
         return self
 
