@@ -5,6 +5,11 @@
 - Install all the dependencies from the `requirements.txt`
 - Run the program
 
+## Automatic testing
+
+- Run `pytest -vv --durations=0 tests.py`
+- My test results can be found at `testResults.txt`
+
 ## Task
 
 Našou úlohou je nájsť riešenie 8-hlavolamu. Hlavolam je zložený z 8 očíslovaných políčok a jedného prázdneho miesta. Políčka je možné presúvať hore, dole, vľavo alebo vpravo, ale len ak je tým smerom medzera. Je vždy daná nejaká východisková a nejaká cieľová pozícia a je potrebné nájsť postupnosť krokov, ktoré vedú z jednej pozície do druhej.

@@ -1,14 +1,15 @@
-from sortedcontainers import SortedSet
+from sortedcontainers import SortedDict
 
 from operations import operations
 
 
 def a_star_solve(s1, strategy):
     s2 = strategy.s2
-    open_list = SortedSet([s1], strategy.apply)
+    open_list = SortedDict(strategy.apply)
+    open_list[s1] = s1
     closed_list = set()
     while True:
-        cur = open_list.pop(0)
+        cur = open_list._list_pop(0)
         if cur == s2:
             out = [cur]
             while cur.parent is not None:
@@ -22,9 +23,6 @@ def a_star_solve(s1, strategy):
                 nbor = op.apply(cur)
                 if nbor is None or nbor in closed_list:
                     continue
-                # if nbor in open_list:
-                #    if cur.dist < nbor.dist:
-                #        del open_list[open_list.index(nbor)]
-                #        open_list.add(nbor)
-                # else:
-                open_list.add(nbor)
+                old = open_list.get(nbor)
+                if old is None or old.dist > nbor.dist:
+                    open_list[nbor] = nbor

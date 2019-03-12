@@ -1,3 +1,7 @@
+Testing started at 11:17 AM ...
+C:\Users\Gyurix\AppData\Local\Programs\Python\Python37\python.exe "C:\Program Files\JetBrains\PyCharm 2018.3.5\helpers\pycharm\_jb_pytest_runner.py" --path D:/Mega/STU/UI/Puzzler/tests.py -- -vv --durations=0
+Launching pytest with arguments -vv --durations=0 D:/Mega/STU/UI/Puzzler/tests.py in D:\Mega\STU\UI\Puzzler
+
 ============================= test session starts =============================
 platform win32 -- Python 3.7.2, pytest-4.3.0, py-1.8.0, pluggy-0.9.0 -- C:\Users\Gyurix\AppData\Local\Programs\Python\Python37\python.exe
 cachedir: .pytest_cache
@@ -334,5 +338,63 @@ Path len = 56
 55. ((4 3 2 6 1)(9 8 7 5 m))
 
 
-========================= 19 passed in 170.25 seconds =========================
+=========================== slowest test durations ============================
+79.92s call     tests.py::test_a_star_5x2_dc2
+70.85s call     tests.py::test_a_star_5x2_dc1
+6.01s call     tests.py::test_a_star_3x3_dc1
+1.18s call     tests.py::test_a_star_3x3_dc2
+0.67s call     tests.py::test_a_star_4x2_dc2
+0.63s call     tests.py::test_a_star_4x2_dc1
+0.02s call     tests.py::test_a_star_3x2_dc1
+0.02s call     tests.py::test_a_star_3x2_dc2
+0.00s call     tests.py::test_operation_left
+0.00s setup    tests.py::test_operation_left
+0.00s teardown tests.py::test_operation_left
+0.00s call     tests.py::test_equals
+0.00s call     tests.py::test_a_star_two_step
+0.00s call     tests.py::test_a_star_one_step
+0.00s call     tests.py::test_a_star_same
+0.00s call     tests.py::test_dif_calc_dist_from_correct_ep
+0.00s call     tests.py::test_dif_calc_incorrect_ep
+0.00s call     tests.py::test_operation_right
+0.00s call     tests.py::test_operation_down
+0.00s call     tests.py::test_operation_up
+0.00s call     tests.py::test_state_to_string
+0.00s teardown tests.py::test_a_star_5x2_dc2
+0.00s setup    tests.py::test_a_star_5x2_dc2
+0.00s teardown tests.py::test_a_star_5x2_dc1
+0.00s setup    tests.py::test_a_star_5x2_dc1
+0.00s teardown tests.py::test_a_star_3x3_dc2
+0.00s setup    tests.py::test_a_star_3x3_dc2
+0.00s teardown tests.py::test_a_star_3x3_dc1
+0.00s setup    tests.py::test_a_star_3x3_dc1
+0.00s teardown tests.py::test_a_star_4x2_dc2
+0.00s setup    tests.py::test_a_star_4x2_dc2
+0.00s teardown tests.py::test_a_star_4x2_dc1
+0.00s setup    tests.py::test_a_star_4x2_dc1
+0.00s teardown tests.py::test_a_star_3x2_dc2
+0.00s setup    tests.py::test_a_star_3x2_dc2
+0.00s teardown tests.py::test_a_star_3x2_dc1
+0.00s setup    tests.py::test_a_star_3x2_dc1
+0.00s teardown tests.py::test_a_star_two_step
+0.00s setup    tests.py::test_a_star_two_step
+0.00s teardown tests.py::test_a_star_one_step
+0.00s setup    tests.py::test_a_star_one_step
+0.00s teardown tests.py::test_a_star_same
+0.00s setup    tests.py::test_a_star_same
+0.00s teardown tests.py::test_dif_calc_dist_from_correct_ep
+0.00s setup    tests.py::test_dif_calc_dist_from_correct_ep
+0.00s teardown tests.py::test_dif_calc_incorrect_ep
+0.00s setup    tests.py::test_dif_calc_incorrect_ep
+0.00s teardown tests.py::test_equals
+0.00s setup    tests.py::test_equals
+0.00s teardown tests.py::test_operation_right
+0.00s setup    tests.py::test_operation_right
+0.00s teardown tests.py::test_operation_down
+0.00s setup    tests.py::test_operation_down
+0.00s teardown tests.py::test_operation_up
+0.00s setup    tests.py::test_operation_up
+0.00s teardown tests.py::test_state_to_string
+0.00s setup    tests.py::test_state_to_string
+========================= 19 passed in 159.39 seconds =========================
 Process finished with exit code 0
