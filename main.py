@@ -6,6 +6,11 @@ from state import State
 
 
 def print_path(path):
+    """
+        Prints the given path to the standard output
+        :param path: The printable path (list of State objects)
+        :return: None
+    """
     print('\nPath len =', len(path))
     i = 0
     fmt = '{:' + str(int(log10(len(path) * 10 - 1))) + '}. {}'
