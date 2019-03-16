@@ -1,8 +1,17 @@
-============================= test session starts =============================
-platform win32 -- Python 3.7.2, pytest-4.3.0, py-1.8.0, pluggy-0.9.0
-rootdir: D:\Mega\STU\UI\Puzzler, inifile:collected 19 items
+collecting ... collected 19 items
 
-tests.py ............
+tests.py::test_state_to_string PASSED                                    [  5%]
+tests.py::test_operation_up PASSED                                       [ 10%]
+tests.py::test_operation_down PASSED                                     [ 15%]
+tests.py::test_operation_right PASSED                                    [ 21%]
+tests.py::test_operation_left PASSED                                     [ 26%]
+tests.py::test_equals PASSED                                             [ 31%]
+tests.py::test_dif_calc_incorrect_ep PASSED                              [ 36%]
+tests.py::test_dif_calc_dist_from_correct_ep PASSED                      [ 42%]
+tests.py::test_a_star_same PASSED                                        [ 47%]
+tests.py::test_a_star_one_step PASSED                                    [ 52%]
+tests.py::test_a_star_two_step PASSED                                    [ 57%]
+tests.py::test_a_star_3x2_dc1 PASSED                                     [ 63%]
 Path len = 22
  0. ((m 1 2)(3 4 5)) {op = None; dist=0; created nodes=0}
  1. ((3 1 2)(m 4 5)) {op = Down; dist=1; created nodes=2}
@@ -26,7 +35,8 @@ Path len = 22
 19. ((3 4 5)(1 2 m)) {op = Down; dist=19; created nodes=378}
 20. ((3 4 5)(1 m 2)) {op = Left; dist=20; created nodes=385}
 21. ((3 4 5)(m 1 2)) {op = Left; dist=21; created nodes=391}
-.
+
+tests.py::test_a_star_3x2_dc2 PASSED                                     [ 68%]
 Path len = 22
  0. ((m 1 2)(3 4 5)) {op = None; dist=0; created nodes=0}
  1. ((3 1 2)(m 4 5)) {op = Down; dist=1; created nodes=2}
@@ -50,7 +60,8 @@ Path len = 22
 19. ((3 4 5)(1 2 m)) {op = Down; dist=19; created nodes=291}
 20. ((3 4 5)(1 m 2)) {op = Left; dist=20; created nodes=296}
 21. ((3 4 5)(m 1 2)) {op = Left; dist=21; created nodes=300}
-.
+
+tests.py::test_a_star_4x2_dc1 PASSED                                     [ 73%]
 Path len = 37
  0. ((m 1 2 3)(4 5 6 7)) {op = None; dist=0; created nodes=0}
  1. ((4 1 2 3)(m 5 6 7)) {op = Down; dist=1; created nodes=2}
@@ -89,7 +100,8 @@ Path len = 37
 34. ((3 2 m 4)(7 6 5 1)) {op = Right; dist=34; created nodes=24975}
 35. ((3 2 5 4)(7 6 m 1)) {op = Down; dist=35; created nodes=24989}
 36. ((3 2 5 4)(7 6 1 m)) {op = Right; dist=36; created nodes=24994}
-.
+
+tests.py::test_a_star_4x2_dc2 PASSED                                     [ 78%]
 Path len = 37
  0. ((m 1 2 3)(4 5 6 7)) {op = None; dist=0; created nodes=0}
  1. ((1 m 2 3)(4 5 6 7)) {op = Right; dist=1; created nodes=1}
@@ -128,7 +140,8 @@ Path len = 37
 34. ((3 2 5 4)(7 m 6 1)) {op = Down; dist=34; created nodes=18269}
 35. ((3 2 5 4)(7 6 m 1)) {op = Right; dist=35; created nodes=18491}
 36. ((3 2 5 4)(7 6 1 m)) {op = Right; dist=36; created nodes=18614}
-.
+
+tests.py::test_a_star_3x3_dc1 PASSED                                     [ 84%]
 Path len = 32
  0. ((m 1 2)(3 4 5)(6 7 8)) {op = None; dist=0; created nodes=0}
  1. ((3 1 2)(m 4 5)(6 7 8)) {op = Down; dist=1; created nodes=2}
@@ -162,7 +175,8 @@ Path len = 32
 29. ((8 6 7)(5 4 m)(2 3 1)) {op = Right; dist=29; created nodes=197996}
 30. ((8 6 m)(5 4 7)(2 3 1)) {op = Up; dist=30; created nodes=200707}
 31. ((8 m 6)(5 4 7)(2 3 1)) {op = Left; dist=31; created nodes=200965}
-.
+
+tests.py::test_a_star_3x3_dc2 PASSED                                     [ 89%]
 Path len = 32
  0. ((m 1 2)(3 4 5)(6 7 8)) {op = None; dist=0; created nodes=0}
  1. ((3 1 2)(m 4 5)(6 7 8)) {op = Down; dist=1; created nodes=2}
@@ -196,7 +210,8 @@ Path len = 32
 29. ((8 6 7)(5 4 m)(2 3 1)) {op = Right; dist=29; created nodes=17338}
 30. ((8 6 m)(5 4 7)(2 3 1)) {op = Up; dist=30; created nodes=18137}
 31. ((8 m 6)(5 4 7)(2 3 1)) {op = Left; dist=31; created nodes=18730}
-.
+
+tests.py::test_a_star_5x2_dc1 PASSED                                     [ 94%]
 Path len = 56
  0. ((m 1 2 3 4)(5 6 7 8 9)) {op = None; dist=0; created nodes=0}
  1. ((5 1 2 3 4)(m 6 7 8 9)) {op = Down; dist=1; created nodes=2}
@@ -254,7 +269,8 @@ Path len = 56
 53. ((4 3 2 6 1)(9 8 m 7 5)) {op = Right; dist=53; created nodes=2353260}
 54. ((4 3 2 6 1)(9 8 7 m 5)) {op = Right; dist=54; created nodes=2353296}
 55. ((4 3 2 6 1)(9 8 7 5 m)) {op = Right; dist=55; created nodes=2353316}
-.
+
+tests.py::test_a_star_5x2_dc2 PASSED                                     [100%]
 Path len = 56
  0. ((m 1 2 3 4)(5 6 7 8 9)) {op = None; dist=0; created nodes=0}
  1. ((5 1 2 3 4)(m 6 7 8 9)) {op = Down; dist=1; created nodes=2}
@@ -312,7 +328,64 @@ Path len = 56
 53. ((4 3 2 m 6)(9 8 7 5 1)) {op = Right; dist=53; created nodes=1725858}
 54. ((4 3 2 6 m)(9 8 7 5 1)) {op = Right; dist=54; created nodes=1730864}
 55. ((4 3 2 6 1)(9 8 7 5 m)) {op = Down; dist=55; created nodes=1733160}
-                                             [100%]
 
-========================= 19 passed in 153.39 seconds =========================
-Process finished with exit code 0
+
+=========================== slowest test durations ============================
+73.83s call     tests.py::test_a_star_5x2_dc2
+71.71s call     tests.py::test_a_star_5x2_dc1
+6.21s call     tests.py::test_a_star_3x3_dc1
+1.01s call     tests.py::test_a_star_3x3_dc2
+0.67s call     tests.py::test_a_star_4x2_dc2
+0.65s call     tests.py::test_a_star_4x2_dc1
+0.01s call     tests.py::test_a_star_3x2_dc1
+0.01s call     tests.py::test_a_star_3x2_dc2
+0.00s setup    tests.py::test_a_star_3x2_dc1
+0.00s teardown tests.py::test_operation_right
+0.00s setup    tests.py::test_dif_calc_dist_from_correct_ep
+0.00s teardown tests.py::test_operation_down
+0.00s setup    tests.py::test_a_star_5x2_dc1
+0.00s setup    tests.py::test_a_star_4x2_dc2
+0.00s call     tests.py::test_a_star_two_step
+0.00s call     tests.py::test_operation_down
+0.00s call     tests.py::test_operation_up
+0.00s teardown tests.py::test_a_star_5x2_dc1
+0.00s setup    tests.py::test_a_star_3x3_dc1
+0.00s teardown tests.py::test_a_star_same
+0.00s setup    tests.py::test_a_star_one_step
+0.00s setup    tests.py::test_equals
+0.00s setup    tests.py::test_a_star_3x2_dc2
+0.00s teardown tests.py::test_operation_left
+0.00s setup    tests.py::test_a_star_same
+0.00s call     tests.py::test_dif_calc_dist_from_correct_ep
+0.00s setup    tests.py::test_operation_left
+0.00s setup    tests.py::test_dif_calc_incorrect_ep
+0.00s teardown tests.py::test_a_star_5x2_dc2
+0.00s teardown tests.py::test_a_star_3x3_dc1
+0.00s teardown tests.py::test_a_star_3x2_dc2
+0.00s setup    tests.py::test_a_star_5x2_dc2
+0.00s setup    tests.py::test_a_star_4x2_dc1
+0.00s call     tests.py::test_a_star_one_step
+0.00s call     tests.py::test_a_star_same
+0.00s call     tests.py::test_dif_calc_incorrect_ep
+0.00s call     tests.py::test_equals
+0.00s call     tests.py::test_operation_left
+0.00s call     tests.py::test_operation_right
+0.00s call     tests.py::test_state_to_string
+0.00s teardown tests.py::test_a_star_3x3_dc2
+0.00s setup    tests.py::test_a_star_3x3_dc2
+0.00s teardown tests.py::test_a_star_4x2_dc2
+0.00s teardown tests.py::test_a_star_4x2_dc1
+0.00s teardown tests.py::test_a_star_3x2_dc1
+0.00s teardown tests.py::test_a_star_two_step
+0.00s setup    tests.py::test_a_star_two_step
+0.00s teardown tests.py::test_a_star_one_step
+0.00s teardown tests.py::test_dif_calc_dist_from_correct_ep
+0.00s teardown tests.py::test_dif_calc_incorrect_ep
+0.00s teardown tests.py::test_equals
+0.00s setup    tests.py::test_operation_right
+0.00s setup    tests.py::test_operation_down
+0.00s teardown tests.py::test_operation_up
+0.00s setup    tests.py::test_operation_up
+0.00s teardown tests.py::test_state_to_string
+0.00s setup    tests.py::test_state_to_string
+========================= 19 passed in 154.24 seconds =========================
