@@ -10,7 +10,7 @@ def print_path(path):
     i = 0
     fmt = '{:' + str(int(log10(len(path) * 10 - 1))) + '}. {}'
     for s in path:
-        print(fmt.format(i, s))
+        print(fmt.format(i, s.__repr__()))
         i += 1
 
 

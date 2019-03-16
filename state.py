@@ -1,5 +1,6 @@
 class State:
     def __init__(self, parent=None):
+        self.created_nodes = 0
         self.parent = parent
         if parent is None:
             self.data = None
@@ -50,7 +51,7 @@ class State:
         return out + ')'
 
     def __repr__(self):
-        return self.__str__() + ' DIST = ' + str(self.dist)
+        return self.__str__() + ' {dist=' + str(self.dist)+'; created nodes='+str(self.created_nodes)+'}'
 
     def __hash__(self):
         out = 0

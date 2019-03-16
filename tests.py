@@ -169,3 +169,4 @@ def test_a_star_5x2_dc2():
     print_path(out)
     assert len(out) == 56
     assert out[len(out) - 1] == s2
+
