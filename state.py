@@ -8,6 +8,7 @@ class State:
         - x,y: Coordinates of 'm', which can be moved in 4 directions for finding this states neighbours
         - data: 2D data array of numbers of the puzzle
         - dist: The depth of parents of this state
+        - op: The operator used for getting to this state from the parent state
     """
 
     def __init__(self, parent=None):
@@ -16,6 +17,7 @@ class State:
             :param parent: Optional parent argument (the data will be copied from the parent, if it's provided)
         """
         self.created_nodes = 0
+        self.op = None
         self.parent = parent
         if parent is None:
             self.data = None
@@ -104,7 +106,7 @@ class State:
             data in a ((1 2 3)(4 5 6)(7 8 m)) format, it's dist and the created nodes
             :return: The generated String
         """
-        return self.__str__() + ' {dist=' + str(self.dist) + '; created nodes=' + str(self.created_nodes) + '}'
+        return self.__str__() + ' {op = '+str(self.op) + '; dist=' + str(self.dist) + '; created nodes=' + str(self.created_nodes) + '}'
 
     def __hash__(self):
         """

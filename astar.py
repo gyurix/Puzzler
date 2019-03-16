@@ -60,6 +60,7 @@ def a_star_solve(s1, strategy):
                 # and process our neighbour
                 created_nodes += 1
                 nbor.created_nodes = created_nodes
+                nbor.op = op
                 old = open_list.get(nbor)
                 # If the neighbour is already in open list, but with higher f score, then we replace it with
                 # the currently found one having the lower f score.
